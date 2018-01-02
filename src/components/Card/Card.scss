@@ -1,0 +1,72 @@
+$cardHeight: 180px;
+$cardWidth: 450px;
+
+.card{
+  width: $cardWidth;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 10px 10px 100px rgba(0,0,0,.12);
+  border-radius: 6px;
+  font-family: 'Monda', sans-serif;
+  .bgimg{
+    width: $cardHeight;
+    background-color: #333;
+    cursor: pointer;
+  }
+  .cardInfo{
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    .title{
+      color: #00bcd4;
+      font-size: 24px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-bottom: 10px;
+      letter-spacing:-2px;
+    }
+    .des{
+      font-size: 14px;
+      line-height: 24px;
+      color: #999;
+      height: 60px;
+      overflow: hidden;
+    }
+
+    .buttons{
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      flex-grow: 1;
+      align-items: flex-end;
+      .circle{
+        // width: 40px;
+        // height: 40px;
+        // border-radius: 40px;
+        // background-color: #bbb;
+        margin: 0 10px;
+        text-align: center;
+        // color: white;
+        font-size: 25px;
+        transition: .25s all;
+        &:hover{
+          transform: scale(1.5) rotate(370deg);
+        }
+        &.demo{
+          color: rgb(255, 101, 116);
+        }
+        &.repo{
+          color: #555;
+        }
+      }
+    }
+  }
+}
