@@ -13,11 +13,12 @@ class Section extends Component {
   }
 
   render() {
-    const { title, id, dataList } = this.props
+    const { title, id, dataList, goDetail } = this.props
 
     return (
       <div id={id} className="section">
         <h2>{title}</h2>
+        <button className="more" onClick={() => goDetail(id)}>More</button>
         {
           dataList.map(data => (
             <Card
