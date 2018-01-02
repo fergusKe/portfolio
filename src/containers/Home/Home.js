@@ -1,18 +1,27 @@
 import React, { Component } from 'react'
+import HomeTitle from '../../components/HomeTitle/HomeTitle'
+import Section from '../../components/Section/Section'
+
+import webJson from './webData.json'
 import './Home.scss'
+
 
 class Home extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="pageHome">
+        <HomeTitle />
+        {
+          webJson.map(sectionData => (
+            <Section
+              key={sectionData.key}
+              title={sectionData.title}
+              dataList={sectionData.dataList}
+            />
+          ))
+        }
       </div>
-    );
+    )
   }
 }
 
