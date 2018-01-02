@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import HomeTitle from '../../components/HomeTitle/HomeTitle'
 import Section from '../../components/Section/Section'
 
