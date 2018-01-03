@@ -7,6 +7,7 @@ import NotFound from './containers/NotFound/NotFound'
 
 import 'ress/dist/ress.min.css'
 import 'font-awesome/css/font-awesome.min.css'
+import 'animate.css/animate.min.css'
 
 ReactDOM.render(
   <Router>
