@@ -8,8 +8,10 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import HomeTitle from '../../components/HomeTitle/HomeTitle'
 import Section from '../../components/Section/Section'
 import DetailPage from '../../components/DetailPage/DetailPage'
+import FlipCard from '../../components/FlipCard/FlipCard'
 
 import webJson from './webData.json'
+import member from './member.json'
 import './Home.scss'
 
 
@@ -50,6 +52,16 @@ class Home extends Component {
             ))
           }
         </ParallaxProvider>
+        <div className="profile">
+          {
+            member.map(memberData => (
+              <FlipCard
+                key={memberData.name}
+                {...memberData}
+              />
+            ))
+          }
+        </div>
         <div className={`menu ${!isExact && 'slideIn'}`}>
           {
             webJson.map(sectionData => (
