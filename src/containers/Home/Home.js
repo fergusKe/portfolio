@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { AnimatedRoute } from 'react-router-transition'
 import FontAwesome from 'react-fontawesome'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 import HomeTitle from '../../components/HomeTitle/HomeTitle'
 import Section from '../../components/Section/Section'
@@ -34,18 +35,20 @@ class Home extends Component {
     return (
       <div id="pageHome">
         <HomeTitle />
-        {
-          webJson.map(sectionData => (
-            <Section
-              key={sectionData.key}
-              title={sectionData.title}
-              dataList={sectionData.dataList.slice(-3).reverse()}
-              id={sectionData.key}
-              goDetail={this.goDetail}
-              desc={sectionData.desc}
-            />
-          ))
-        }
+        <ParallaxProvider>
+          {
+            webJson.map(sectionData => (
+              <Section
+                key={sectionData.key}
+                title={sectionData.title}
+                dataList={sectionData.dataList.slice(-3).reverse()}
+                id={sectionData.key}
+                goDetail={this.goDetail}
+                desc={sectionData.desc}
+              />
+            ))
+          }
+        </ParallaxProvider>
         <div className={`menu ${!isExact && 'slideIn'}`}>
           {
             webJson.map(sectionData => (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Parallax } from 'react-scroll-parallax'
 
 import Card from '../Card/Card'
 
@@ -19,18 +20,29 @@ class Section extends Component {
 
     return (
       <div id={id} className="section">
-        <div className="titleText">
-          <h2>{title}</h2>
-          <p>{desc}</p>
-          <button className="more" onClick={() => goDetail(id)}>More</button>
+        <div className="sectionTitle">
+          <Parallax
+            className="shadow"
+            offsetYMax={50}
+            offsetYMin={-50}
+          >
+            <div>{title}</div>
+          </Parallax>
+          <div className="titleText">
+            <h2>{title}</h2>
+            <p>{desc}</p>
+            <button className="more" onClick={() => goDetail(id)}>More</button>
+          </div>
         </div>
-        {
-          dataList.map(data => (
-            <Card
-              {...data}
-            />
-          ))
-        }
+        <div className="content">
+          {
+            dataList.map(data => (
+              <Card
+                {...data}
+              />
+            ))
+          }
+        </div>
       </div>
     )
   }
