@@ -37,8 +37,9 @@ class Home extends Component {
         <HomeTitle />
         <ParallaxProvider>
           {
-            webJson.map(sectionData => (
+            webJson.map((sectionData, index) => (
               <Section
+                reverse={ index % 2 === 0 }
                 key={sectionData.key}
                 title={sectionData.title}
                 dataList={sectionData.dataList.slice(-3).reverse()}
