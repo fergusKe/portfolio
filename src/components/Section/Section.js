@@ -12,6 +12,8 @@ class Section extends Component {
     title: PropTypes.string,
     id: PropTypes.string,
     dataList: PropTypes.array,
+    goDetail: PropTypes.func,
+    desc: PropTypes.string,
     reverse: PropTypes.bool,
   }
 

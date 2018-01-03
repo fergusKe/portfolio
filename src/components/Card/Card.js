@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
 import ScrollAnimation from 'react-animate-on-scroll'
 
+import logo from '../../static/images/logo.png'
 import './Card.scss'
 
 class Card extends Component {
@@ -12,6 +13,30 @@ class Card extends Component {
     img: PropTypes.string,
     demoUrl: PropTypes.string,
     repoUrl: PropTypes.string,
+  }
+
+  state = {
+    src: logo,
+  }
+
+  componentDidMount() {
+    if (this.props.img.split('.').pop() === 'gif') {
+      this.image.addEventListener('mouseenter', () => {
+        this.setImage(this.props.img)
+      })
+
+      this.image.addEventListener('mouseleave', () => {
+        this.setImage(logo)
+      })
+    } else {
+      this.setImage(this.props.img)
+    }
+  }
+
+  setImage = (src) => {
+    this.setState({
+      src,
+    })
   }
 
   render() {
@@ -24,11 +49,15 @@ class Card extends Component {
     } = this.props
 
     return (
-      <ScrollAnimation animateIn="fadeIn">
+      <ScrollAnimation
+        animateIn="fadeIn"
+        animateOnce={true}
+      >
         <div className="card">
           <img
+            ref={image => this.image = image}
             className="bgimg"
-            src={img}
+            src={this.state.src}
             alt=""
           />
 
