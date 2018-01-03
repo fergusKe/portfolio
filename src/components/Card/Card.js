@@ -22,10 +22,6 @@ class Card extends Component {
       repoUrl,
     } = this.props
 
-    const bgStyle = {
-      backgroundImage: `url("${img}")`
-    }
-
     return (
       <div className="card">
         <img

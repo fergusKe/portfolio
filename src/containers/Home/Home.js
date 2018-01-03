@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { AnimatedRoute } from 'react-router-transition'
 import FontAwesome from 'react-fontawesome'
 
@@ -37,10 +38,19 @@ class Home extends Component {
               key={sectionData.key}
               title={sectionData.title}
               dataList={sectionData.dataList.slice(-3).reverse()}
+              id={sectionData.key}
               goDetail={this.goDetail}
+              desc={sectionData.desc}
             />
           ))
         }
+        <div className={`menu ${!isExact && 'slideIn'}`}>
+          {
+            webJson.map(sectionData => (
+              <Link className="link" to={`/detail/${sectionData.key}`}>{sectionData.title}</Link>
+            ))
+          }
+        </div>
         <div className={`goHome ${!isExact && 'slideIn'}`} onClick={this.goHome}>
           <div className="animated bounce">
             <FontAwesome name="chevron-left" />
