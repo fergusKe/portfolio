@@ -14,7 +14,7 @@ class Section extends Component {
 
   render() {
     const {
-      title, id, dataList, goDetail, desc, reverse
+      title, id, dataList, goDetail, desc
     } = this.props
 
     return (

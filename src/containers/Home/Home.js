@@ -29,6 +29,8 @@ class Home extends Component {
   render() {
     const { isExact } = this.props.match
 
+    document.querySelector('html').style.overflow = isExact ? 'auto' : 'hidden'
+
     return (
       <div id="pageHome">
         <HomeTitle />
@@ -47,7 +49,13 @@ class Home extends Component {
         <div className={`menu ${!isExact && 'slideIn'}`}>
           {
             webJson.map(sectionData => (
-              <Link className="link" to={`/detail/${sectionData.key}`}>{sectionData.title}</Link>
+              <Link
+                key={sectionData.key}
+                className="link"
+                to={`/detail/${sectionData.key}`}
+              >
+                {sectionData.title}
+              </Link>
             ))
           }
         </div>
